@@ -1,0 +1,137 @@
+{
+  "ver" : "1.0.0",
+  "authors" : [ ],
+  "contact" : "help@kbase.us",
+  "visble" : true,
+  "categories" : ["active", "comparative_genomics"],
+  "widgets" : {
+    "input" : null,
+    "output" : "GenomeComparisonWidget"
+  },
+  "parameters" : [ {
+    "id" : "param0",
+    "optional" : false,
+    "advanced" : false,
+    "allow_multiple" : false,
+    "default_values" : [ "" ],
+    "field_type" : "text",
+    "text_options" : {
+      "valid_ws_types" : [ "KBaseGenomes.Genome" ]
+    }
+  }, {
+    "id" : "param1",
+    "optional" : false,
+    "advanced" : false,
+    "allow_multiple" : false,
+    "default_values" : [ "" ],
+    "field_type" : "text",
+    "text_options" : {
+      "valid_ws_types" : [ "KBaseGenomes.Genome" ]
+    }
+  }, {
+    "id" : "pc_name",
+    "optional" : false,
+    "advanced" : false,
+    "allow_multiple" : false,
+    "default_values" : [ "" ],
+    "field_type" : "text",
+    "text_options" : {
+      "valid_ws_types" : [ "ProteomeComparison.ProteomeComparison" ],
+      "is_output_name":true
+    }
+  }, {
+    "id" : "param_max_eval",
+    "optional" : true,
+    "advanced" : true,
+    "allow_multiple" : false,
+    "default_values" : [ "10e-10" ],
+    "field_type" : "text",
+    "text_options" : {
+      "valid_ws_types" : [ ],
+      "validate_as": "float"
+    }
+  }, {
+    "id" : "param_min_perc",
+    "optional" : true,
+    "advanced" : true,
+    "allow_multiple" : false,
+    "default_values" : [ "90" ],
+    "field_type" : "text",
+    "text_options" : {
+      "valid_ws_types" : [ ],
+      "validate_as": "int"
+    }
+  } ],
+  "behavior" : {
+    "service-mapping" : {
+      "url" : "",
+      "name" : "ProteomeComparison",
+      "method" : "compare_proteomes",
+      "input_mapping" : [
+        {
+          "input_parameter": "param0",
+          "target_property": "genome1id"
+        },
+        {
+          "narrative_system_variable": "workspace",
+          "target_property": "genome1ws"
+        },
+        {
+          "input_parameter": "param1",
+          "target_property": "genome2id"
+        },
+        {
+          "narrative_system_variable": "workspace",
+          "target_property": "genome2ws"
+        },
+        {
+          "input_parameter": "pc_name",
+          "target_property": "output_id"
+        },
+        {
+          "narrative_system_variable": "workspace",
+          "target_property": "output_ws"
+        },
+        {
+          "input_parameter": "param_max_eval",
+          "target_property": "max_evalue"
+        },
+        {
+          "input_parameter": "param_min_perc",
+          "target_property": "sub_bbh_percent"
+        }
+      ],
+            "output_mapping": [
+                {
+                    "service_method_output_path": [0, "pc_ref"],
+                    "target_property": "pc_ref"
+                },
+                {
+                    "input_parameter": "pc_name",
+                    "target_property": "pc_id"
+                },
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "ws_name"
+                },
+		{
+		    "narrative_system_variable": "workspace",
+		    "target_property": "workspace_name"
+		},
+		{
+		    "service_method_output_path": [0,"report_name"],
+		    "target_property": "report_name"
+		},
+		{
+		    "service_method_output_path": [0,"report_ref"],
+		    "target_property": "report_ref"
+		},
+		{
+		    "constant_value": "16",
+		    "target_property": "report_window_line_height"
+		}
+            ]
+    }
+  },
+  "job_id_output_field": "docker"
+}
