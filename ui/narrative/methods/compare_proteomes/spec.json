@@ -36,7 +36,7 @@
     "default_values" : [ "" ],
     "field_type" : "text",
     "text_options" : {
-      "valid_ws_types" : [ "GenomeComparison.ProteomeComparison" ],
+      "valid_ws_types" : [ "ProteomeComparison.ProteomeComparison" ],
       "is_output_name":true
     }
   }, {
@@ -69,36 +69,36 @@
       "method" : "compare_proteomes",
       "input_mapping" : [
         {
-          "input_parameter": "param0",
-          "target_property": "genome1id"
-        },
-        {
           "narrative_system_variable": "workspace",
           "target_property": "genome1ws"
         },
         {
-          "input_parameter": "param1",
-          "target_property": "genome2id"
+          "input_parameter": "param0",
+          "target_property": "genome1id"
         },
         {
           "narrative_system_variable": "workspace",
           "target_property": "genome2ws"
         },
         {
-          "input_parameter": "pc_name",
-          "target_property": "output_id"
+          "input_parameter": "param1",
+          "target_property": "genome2id"
         },
         {
-          "narrative_system_variable": "workspace",
-          "target_property": "output_ws"
+          "input_parameter": "param_min_perc",
+          "target_property": "sub_bbh_percent"
         },
         {
           "input_parameter": "param_max_eval",
           "target_property": "max_evalue"
         },
         {
-          "input_parameter": "param_min_perc",
-          "target_property": "sub_bbh_percent"
+          "narrative_system_variable": "workspace",
+          "target_property": "output_ws"
+        },
+        {
+          "input_parameter": "pc_name",
+          "target_property": "output_id"
         }
       ],
             "output_mapping": [
