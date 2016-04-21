@@ -104,11 +104,11 @@
             "output_mapping": [
                 {
                     "service_method_output_path": [0, "pc_ref"],
-                    "target_property": "pc_ref"
+                    "target_property": "cmp_ref"
                 },
                 {
                     "input_parameter": "pc_name",
-                    "target_property": "pc_id"
+                    "target_property": "ws_id"
                 },
                 {
                     "narrative_system_variable": "workspace",

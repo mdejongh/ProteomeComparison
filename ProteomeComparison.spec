@@ -3,6 +3,8 @@ A KBase module: ProteomeComparison
 */
 
 module ProteomeComparison {
+    /* ProteomeComparison IS COPIED FROM THE GenomeComparison MODULE; AND THIS SERVICE CREATES A GenomeComparison.ProteomeComparison SO THAT WE DONT HAVE TO REFACTOR NARRATIVE CODE */
+
 	/*
 		A workspace ID that references a Genome data object.
 		@id ws KBaseGenomes.Genome

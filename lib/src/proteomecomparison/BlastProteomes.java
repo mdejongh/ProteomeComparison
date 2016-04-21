@@ -210,6 +210,7 @@ public class BlastProteomes {
 
 	private static void saveResult(String ws, String id, ProteomeComparison res,
 			ObjectStorage objectStorage) throws Exception {
+	    // NOTE THAT WE ARE CREATING A GenomeComparison.ProteomeComparison OBJECT HERE FOR NOW, WHICH REFERS TO THE OLD MODULE
 		ObjectSaveData data = new ObjectSaveData().withData(new UObject(res)).withType("GenomeComparison.ProteomeComparison");
 		try {
 			long objid = Long.parseLong(id);
