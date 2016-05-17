@@ -36,7 +36,7 @@
     "default_values" : [ "" ],
     "field_type" : "text",
     "text_options" : {
-      "valid_ws_types" : [ "ProteomeComparison.ProteomeComparison" ],
+      "valid_ws_types" : [ "GenomeComparison.ProteomeComparison" ],
       "is_output_name":true
     }
   }, {
